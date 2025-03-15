@@ -1,0 +1,458 @@
+:root {
+  --primary-color: #fca311;
+  --secondary-color: #0d1b2a;
+  --accent-color: #1b263b;
+  --text-color: #ffffff;
+  --bg-dark: #212529;
+  --green-color: #17e848;
+  --violet-color: #6f42c1;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--secondary-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+/* Navigation */
+.navbar {
+  background: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.navbar .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-brand {
+  margin-right: 0 !important;
+  padding-left: 0.5rem;
+}
+.navbar-brand img {
+  height: 60px;
+  width: auto;
+}
+/* Flip Logo */
+.flip-logo {
+  width: 60px;
+  height: 60px;
+  perspective: 1000px;
+}
+.flip-logo-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+.flip-logo:hover .flip-logo-inner {
+  transform: rotateY(180deg);
+}
+.flip-logo-front, .flip-logo-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-logo-back {
+  transform: rotateY(180deg);
+}
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: var(--text-color) !important;
+  font-weight: 600;
+  margin-right: 15px;
+  transition: color 0.2s;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-carousel .carousel-item {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 2%;
+}
+.carousel-item {
+  transition: transform 0.5s;
+}
+.carousel-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 47, 67, 0.6);
+  z-index: 1;
+}
+.slide-header {
+  position: absolute;
+  top: 2px;
+  left: 36%;
+  transform: translateX(-50%);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--green-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 3;
+}
+.hero-content {
+  position: absolute;
+  top: 8%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 2;
+  text-align: center;
+}
+.hero-content .college-name {
+  font-size: 2.4rem;
+  line-height: 2;
+  font-family: monospace;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-content .dept-name {
+  font-size: 2.2rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+.dept-name::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: var(--primary-color);
+}
+.btn-explore {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.btn-explore:hover {
+  background: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+/* About Section */
+#about {
+  padding: 6rem 0;
+}
+#about h2 {
+  position: relative;
+  padding-bottom: 1rem;
+}
+#about h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--primary-color);
+}
+#about .lead {
+  color: #adb5bd;
+  font-size: 1.25rem;
+}
+/* Courses Section */
+#courses {
+  background: var(--accent-color);
+  padding: 80px 0;
+}
+#courses h2 {
+  color: var(--primary-color);
+}
+.accordion-button {
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: var(--accent-color);
+  color: var(--text-color);
+}
+.accordion-button:not(.collapsed) {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+.accordion-body {
+  background: var(--bg-dark);
+  color: var(--text-color);
+}
+
+/* Study Materials Table Styling */
+table.study-material-table {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+table.study-material-table th {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px;
+}
+table.study-material-table td {
+  padding: 10px;
+  vertical-align: middle;
+}
+table.study-material-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Hide the Study Materials button by default; show on hover of the courses section */
+.study-material-btn-wrapper {
+  display: none;
+  margin-top: 20px;
+}
+#courses:hover .study-material-btn-wrapper {
+  display: block;
+}
+
+/* Faculty Section */
+#faculty {
+  background: var(--secondary-color);
+  padding: 80px 0;
+}
+#faculty h2 {
+  color: var(--primary-color);
+}
+.faculty-card {
+  background: var(--accent-color);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.faculty-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(95, 91, 91, 0.5);
+}
+.faculty-card img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 4px 4px 0 0;
+}
+.card-body {
+  padding: 1.5rem;
+}
+.card-title {
+  color: var(--primary-color) !important;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.card-text {
+  color: var(--text-color) !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.occupation {
+  color: lightgreen !important;
+  font-size: 0.85rem;
+}
+/* Contact Section */
+#contact {
+  background: var(--accent-color);
+  padding: 80px 0;
+}
+#contact h2 {
+  color: var(--primary-color);
+}
+#contact .form-control,
+#contact .form-control:focus {
+  background: var(--bg-dark);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+.contact-form {
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+#contact label {
+  color: var(--text-color);
+}
+.alert-success {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  margin-top: 20px;
+}
+.alert-danger{
+  background-color: rgb(214, 80, 80);
+  color: var(--secondary-color);
+  border: none;
+  margin-top: 20px;
+}
+/* Footer */
+footer {
+  background-color: #05011f;
+  color: var(--text-color);
+  padding: 40px 0 20px;
+}
+footer a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.footer-top {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 20px;
+}
+.footer-top h5 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: var(--text-color);
+  padding: 4px;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    top: 10%;
+    left: 2%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0.1rem;
+    text-align: center;
+  }
+  .slide-header {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+  }
+  .hero-content .college-name {
+    font-size: 1.8rem;
+  }
+  .hero-content .dept-name {
+    font-size: 1.5rem;
+  }
+  .hero,
+  .hero-carousel .carousel-item {
+    height: 75vh;
+  }
+}
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  /* Reduce hero height and adjust content positioning */
+  .hero {
+    height: 75vh;
+  }
+  .hero-content {
+    top: 10%;
+    left: 2%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  .slide-header {
+    top: 1px;
+    left: 20%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+  }
+  .hero-content .college-name {
+    font-size: 1.2rem;
+  }
+  .hero-content .dept-name {
+    font-size: 1rem;
+  }
+
+  /* Navigation adjustments */
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  /* Section padding adjustments for Courses, Faculty, Contact */
+  #about, #courses, #faculty, #contact {
+    padding: 40px 15px;
+  }
+
+  /* Accordion items in Courses: adjust font sizes and spacing */
+  .accordion-button {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .accordion-body {
+    font-size: 0.9rem;
+  }
+
+  /* Study Materials Table Adjustments */
+  table.study-material-table {
+    font-size: 0.9rem;
+  }
+  table.study-material-table th, 
+  table.study-material-table td {
+    padding: 7px;
+    
+  }
+
+  /* Adjust the Study Materials button position if needed */
+  .study-material-btn-wrapper {
+    margin-top: 15px;
+  }
+}
+/* Ensure the navbar toggler (hamburger menu) is visible on mobile */
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

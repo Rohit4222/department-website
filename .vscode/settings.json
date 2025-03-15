@@ -1,0 +1,6 @@
+{
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.proxy": {
+        "proxyUri": "http://127.0.0.1:50"
+    }
+}
