@@ -16,6 +16,10 @@ app.use('/pdfs', express.static('pdfs'));
 // If not set, fallback to a local MongoDB connection and port 5000.
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/collegeDB';
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
