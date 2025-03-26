@@ -64,22 +64,34 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   
   if (name === '' || email === '') {
     messageDiv.classList.remove('d-none');
+    messageDiv.classList.remove('alert-success');
     messageDiv.classList.add('alert-danger');
     messageDiv.innerHTML = 'Please fill out both Name and Email fields!';
+    setTimeout(() => {
+      messageDiv.classList.add('d-none');
+    }, 3000);
     return;
   }
   
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     messageDiv.classList.remove('d-none');
+    messageDiv.classList.remove('alert-success');
     messageDiv.classList.add('alert-danger');
     messageDiv.innerHTML = 'Please provide a valid email address!';
+    setTimeout(() => {
+      messageDiv.classList.add('d-none');
+    }, 3000);
     return;
   }
   
   if (!/^\S+\s+\S+/.test(name)) {
     messageDiv.classList.remove('d-none');
+    messageDiv.classList.remove('alert-success');
     messageDiv.classList.add('alert-danger');
     messageDiv.innerHTML = 'Please provide your full name (first and last name)!';
+    setTimeout(() => {
+      messageDiv.classList.add('d-none');
+    }, 3000);
     return;
   }
   
@@ -99,14 +111,21 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       messageDiv.classList.add('alert-success');
       messageDiv.innerHTML = data.message;
       document.getElementById('contactForm').reset();
-      setTimeout(() => messageDiv.classList.add('d-none','alert-danger'), 2000);
+      setTimeout(() => {
+         messageDiv.classList.add('d-none');
+         messageDiv.classList.remove('alert-success');
+      }, 3000);
   })
   .catch(err => {
       messageDiv.classList.remove('d-none', 'alert-success');
       messageDiv.classList.add('alert-danger');
       messageDiv.innerHTML = 'Error: ' + err.message;
+      setTimeout(() => {
+         messageDiv.classList.add('d-none');
+      }, 3000);
   });
 });
+
 
 // Scroll Effects
 window.addEventListener('scroll', function() {
@@ -146,13 +165,22 @@ function fetchCourses() {
         }
         coursesByYear[item.year].push(item);
       });
+
+      // Mapping for year names
+      const yearMapping = {
+        1: 'First Year',
+        2: 'Second Year',
+        3: 'Third Year'
+      };
+
       let coursesHtml = '';
       for (const year in coursesByYear) {
+        const displayYear = yearMapping[year] || `Year ${year}`;
         coursesHtml += `
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingYear${year}">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#year${year}" aria-expanded="false" aria-controls="year${year}">
-                Year ${year}
+                ${displayYear}
               </button>
             </h2>
             <div id="year${year}" class="accordion-collapse collapse " aria-labelledby="headingYear${year}" data-bs-parent="#coursesAccordion">
@@ -170,6 +198,7 @@ function fetchCourses() {
     })
     .catch(err => console.error('Error fetching courses:', err));
 }
+
 
 // Fetch faculty data from backend and populate the faculty section.
 function fetchFaculty() {
